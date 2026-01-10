@@ -1,15 +1,19 @@
 {
   "expo": {
-    "name": "MyExpoAppDemo",
-    "slug": "MyExpoAppDemo",
-    "version": "1.0.0",
+    "name": "Red Flag",
+    "slug": "red-flag",
+    "version": "0.2.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myexpoappdemo",
+    "scheme": "redflag",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on food products to check if they contain ingredients you want to avoid."
+      },
+      "bundleIdentifier": "com.sayurio.redflag"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +23,13 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "CAMERA",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.sayurio.redflag"
     },
     "web": {
       "output": "static",
@@ -38,11 +48,23 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow RedFlag to access your camera to scan product barcodes."
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1c1e88c6-63c8-4bec-a492-3729707beb0f"
+      }
     }
   }
 }
